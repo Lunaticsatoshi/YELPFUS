@@ -1,4 +1,7 @@
-exports.getWaifus = (req,res) => {
+const db = require('../db');
+exports.getWaifus = async (req,res) => {
+    const results = await db.query("select * from waifus");
+    console.log(results)
     return res.status(200).json({
         status: 'success',
         data: {
